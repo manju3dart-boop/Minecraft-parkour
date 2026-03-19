@@ -4,58 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3D Multiplayer Parkour Game</title>
-    <script src="https://threejs.org/build/three.js"></script>
+    <script src="https://threejs.org/build/three.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; overflow: hidden; }
-        #loading { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; background-color: #000; color: #fff; font-size: 2em; }
-        #main-menu { display: none; }
+        body { margin: 0; font-family: Arial, sans-serif; }
+        canvas { display: block; }
+        #loading { position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.9); z-index: 9999; }
     </style>
 </head>
 <body>
-    <div id="loading">
-        <div>
-            <p>Loading...</p>
-            <div class="xp-bar" style="background: green; height: 20px; width: 200px;">
-                <div id="xp-fill" style="background: yellow; height: 100%; width: 0;"></div>
-            </div>
-        </div>
-    </div>
-    <div id="main-menu">
-        <h1>Main Menu</h1>
-        <input type="text" id="username" placeholder="Enter your username" />
-        <button id="start-button">Start Game</button>
-        <button id="customization-button">Character Customization</button>
-    </div>
-    <script>
-        // Initialize Firebase
-        const firebaseConfig = {
-            apiKey: 'YOUR_API_KEY',
-            authDomain: 'YOUR_PROJECT_ID.firebaseapp.com',
-            databaseURL: 'https://YOUR_PROJECT_ID.firebaseio.com',
-            projectId: 'YOUR_PROJECT_ID',
-            storageBucket: 'YOUR_PROJECT_ID.appspot.com',
-            messagingSenderId: 'YOUR_MESSAGING_SENDER_ID',
-            appId: 'YOUR_APP_ID'
-        };
-        firebase.initializeApp(firebaseConfig);
+<div id="loading">Loading... <div style="width: 50px; height: 10px; background: #00ff00; position: relative;"><div style="width: 0; height: 100%; background: #ff0000; animation: fill 5s linear infinite;"></div></div></div>
+<div id="mainMenu" style="display:none;"><h1>Main Menu</h1><button onclick="startGame()">Quick Play</button><button onclick="customizeCharacter()">Customization</button></div>
+<div id="gameContainer" style="display:none;"></div>
+<script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyDrKGFZulzFpr_oX-wXgPuB92CXvRk7MAY",
+        authDomain: "minecraft-parkour-cbdd0.firebaseapp.com",
+        projectId: "minecraft-parkour-cbdd0",
+        storageBucket: "minecraft-parkour-cbdd0.appspot.com",
+        messagingSenderId: "1078283655101",
+        appId: "1:1078283655101:web:c5937a302bc3d12f1464d4"
+    };
+    firebase.initializeApp(firebaseConfig);
 
-        // Load Game
-        window.onload = function() {
-            document.getElementById('loading').style.display = 'none';
-            document.getElementById('main-menu').style.display = 'block';
+    function startGame() {
+        document.getElementById('mainMenu').style.display = 'none';
+        document.getElementById('gameContainer').style.display = 'block';
+        initGame();
+    }
 
-            // ... other game initialization codes
-        };
+    function customizeCharacter() {
+        // Implement character customization logic
+    }
 
-        document.getElementById('start-button').addEventListener('click', function() {
-            // Start Game Logic
-        });
+    function initGame() {
+        // Implement 3D world using Three.js
+        // Adding platforms and mechanics
+        // Chat system and Firebase synchronization
+    }
 
-        document.getElementById('customization-button').addEventListener('click', function() {
-            // Character Customization Logic
-        });
-    </script>
+    // Load the game
+    window.onload = function() {
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('mainMenu').style.display = 'block';
+    };
+</script>
 </body>
 </html>
