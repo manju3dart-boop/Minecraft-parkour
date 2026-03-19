@@ -2,37 +2,42 @@
 <html>
 <head>
     <title>Minecraft Parkour Multiplayer</title>
-    <style>
-        body { font-family: Arial, sans-serif; }
-        #game { width: 800px; height: 600px; margin: auto; border: 1px solid #000; }
-        #start-button { display: block; margin: 20px auto; }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="minecraft-font.js"></script>
 </head>
 <body>
-    <h1>Minecraft Parkour Multiplayer Game</h1>
-    <div id="game"></div>
-    <button id="start-button">Start Game</button>
+    <h1 style="font-family: 'MinecraftFont';">Minecraft Parkour Multiplayer</h1>
+    <div id="timer">Time: 0</div>
+    <div id="platforms">
+        <!-- moving platforms logic goes here -->
+    </div>
+    <div id="levels">
+        <h2>Levels</h2>
+        <ol>
+            <li>Level 1: Easy</li>
+            <li>Level 2: Easy</li>
+            <li>Level 3: Medium</li>
+            <li>Level 4: Medium</li>
+            <li>Level 5: Hard</li>
+            <li>Level 6: Hard</li>
+            <li>Level 7: Hard</li>
+            <li>Level 8: Very Hard</li>
+            <li>Level 9: Very Hard</li>
+            <li>Level 10: Insane</li>
+            <li>Level 11: Insane</li>
+            <li>Level 12: Insane</li>
+            <li>Level 13: Super Hard</li>
+            <li>Level 14: Super Hard</li>
+            <li>Level 15: Expert</li>
+        </ol>
+    </div>
     <script>
-        // Simulate multiplayer game logic
-        const players = [];
-        let gameStarted = false;
-
-        document.getElementById('start-button').addEventListener('click', () => {
-            if (!gameStarted) {
-                startGame();
-            }
-        });
-
-        function startGame() {
-            gameStarted = true;
-            alert('Game started! Players can join now.');
-            // Initialize players
-            for (let i = 1; i <= 4; i++) {
-                players.push('Player ' + i);
-            }
-            alert('Players in the game: ' + players.join(', '));
-            // Additional game logic here
-        }
+      // Timer Logic
+      let time = 0;
+      setInterval(() => {
+          time++;
+          document.getElementById('timer').innerText = 'Time: ' + time;
+      }, 1000);
     </script>
 </body>
 </html>
